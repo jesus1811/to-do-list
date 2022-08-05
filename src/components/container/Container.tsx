@@ -9,7 +9,9 @@ export const Container = ({ title, description, children }: Props) => {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="autor" content="jesus ayarza" />
+        <meta name="generator" content="Next.js" />
+        <link rel="icon" href="/jesuDev.ico" />
       </Head>
       <Layout>{children}</Layout>
     </>
