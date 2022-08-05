@@ -1,11 +1,13 @@
 import { TaskInterface } from "@/interface";
 import { Button, Card, Paragraph, Title } from "@/styled-components";
+import React from "react";
 
 interface Props {
   task: TaskInterface;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Task = ({ task }: Props) => {
+const Task = ({ task, onClick }: Props) => {
   return (
     <Card gap="10px">
       <Card column gap="10px" flex="100px">
@@ -13,7 +15,7 @@ const Task = ({ task }: Props) => {
         <Paragraph>{task.description}</Paragraph>
       </Card>
       <Card column gap="10px" flex="100px">
-        <Button>Eliminar</Button>
+        <Button onClick={onClick}>Eliminar</Button>
       </Card>
     </Card>
   );

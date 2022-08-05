@@ -7,9 +7,15 @@ import { TaskInterface } from "@/interface";
 import { Task } from "./components";
 
 const Home: NextPage = () => {
-  const { tasks, handleCreateTask } = useTask();
+  const { tasks, handleCreateTask, handleDelteTask } = useTask();
   const name = useField("");
   const description = useField("");
+
+  const handleClean = () => {
+    name.clean();
+    description.clean();
+  };
+
   return (
     <Container title="Home page" description="aplicacion web de tareas">
       <Title>Multi Task</Title>
@@ -23,13 +29,13 @@ const Home: NextPage = () => {
           <Input {...description} type="text" />
         </Card>
         <Card flex="200px">
-          <Button onClick={() => handleCreateTask({ name: name.value, description: description.value })}>
+          <Button onClick={() => handleCreateTask({ name: name.value, description: description.value }, handleClean)}>
             Agregar Tarea
           </Button>
         </Card>
       </Card>
       {tasks.map((task: TaskInterface, index: number) => (
-        <Task key={index} task={task} />
+        <Task key={index} task={task} onClick={() => handleDelteTask({ name: task.name })} />
       ))}
     </Container>
   );

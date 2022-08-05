@@ -7,8 +7,12 @@ export const useField = (initialState: "", limit?: 9999) => {
     setValue(e.currentTarget.value.slice(0, limit));
     console.log(e.currentTarget.value);
   };
+  const clean = () => {
+    setValue(initialState);
+  };
   return {
     onChange,
     value,
+    clean,
   };
 };

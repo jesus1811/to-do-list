@@ -6,12 +6,13 @@ export const useTask = () => {
   const tasks = useSelector((store: any) => store.tasks);
   const dispatch = useDispatch();
 
-  const handleCreateTask = ({ name, description }: TaskInterface) => {
+  const handleCreateTask = ({ name, description }: TaskInterface, clean: () => void) => {
     if (name && description) {
       dispatch(createTask({ name, description }));
+      clean();
     }
   };
-  const handleDelteTask = (name: string) => {
+  const handleDelteTask = ({ name }: Partial<TaskInterface>) => {
     dispatch(deleteTask(name));
   };
   return { handleCreateTask, tasks, handleDelteTask };
