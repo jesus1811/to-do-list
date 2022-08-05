@@ -9,8 +9,10 @@ describe("Task.tsx", () => {
       description: "description test",
     };
     const component = render(<Task task={task} />);
+    component.getByText(task.name);
+    component.getByText(task.description);
 
-    expect(component.container).toHaveTextContent("hello world");
-    expect(component.container).toHaveTextContent("description test");
+    // expect(component.container).toHaveTextContent(task.name);
+    // expect(component.container).toHaveTextContent(task.description);
   });
 });
