@@ -1,11 +1,6 @@
 import { TaskInterface } from "@/interface";
 import { Button, Card, Paragraph, Title } from "@/styled-components";
-import React from "react";
-
-interface Props {
-  task: TaskInterface;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+import { Props } from "./task.interface";
 
 const Task = ({ task, onClick }: Props) => {
   return (

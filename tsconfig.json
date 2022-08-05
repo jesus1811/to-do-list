@@ -17,6 +17,6 @@
     "baseUrl": ".",
     "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/prueba.test.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/prueba.test.js", "src/pages/components/task/Task.test.ts", "src/pages/components/task/Task.tsx", "src/components/container/container.test.jsx"],
   "exclude": ["node_modules"]
 }
