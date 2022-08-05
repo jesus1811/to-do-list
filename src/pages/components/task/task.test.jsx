@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom/extend-expect";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import Task from "./Task";
 
 describe("Task.tsx", () => {
@@ -8,11 +8,21 @@ describe("Task.tsx", () => {
       name: "hello world",
       description: "description test",
     };
-    const component = render(<Task task={task} />);
+    const component = render(<Task task={task} onClick={() => {}} />);
     component.getByText(task.name);
     component.getByText(task.description);
+  });
+  test("onClick button", () => {
+    const mockhandler = jest.fn();
 
-    // expect(component.container).toHaveTextContent(task.name);
-    // expect(component.container).toHaveTextContent(task.description);
+    const task = {
+      name: "hello world",
+      description: "description test",
+    };
+    const component = render(<Task task={task} onClick={mockhandler} />);
+
+    const button = component.getByText("Eliminar");
+    fireEvent.click(button);
+    expect(mockhandler.mock.calls).toHaveLength(1);
   });
 });
